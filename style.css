@@ -54,6 +54,7 @@ a:hover,
 a:focus{
   color:#fff;
   text-decoration:underline;
+  /*cursor:url(images/scope-cursor.png), pointer;*/
 }
 
 img.alignnone{
@@ -221,7 +222,7 @@ img.alignright{
   width:100%;
 }
 .affix + #main{
-  padding-top:90px;
+  padding-top:96px;
 }
 .navbar-toggle{
   border-color:#fff;
@@ -418,6 +419,34 @@ hr{
   text-transform:uppercase;
 }
 
+.contact-method{
+  margin-top:60px;
+  max-width:650px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.contact-method p>a{
+  font-size:22px;
+  font-weight:800;
+}
+
+#productBuilder{
+  margin-top:40px;
+}
+
+.instructions{
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:60px;
+}
+.instructions h2{
+  font-size:22px;
+  font-weight:800;
+  text-transform:uppercase;
+  color:#c00;
+}
+
 
 @media (max-width:767px){
   #hero .caption>h2{
@@ -440,6 +469,10 @@ hr{
   }
   #shopNow p{
     font-size:20px;
+  }
+  .contact-method p{
+    text-align:center;
+    margin-top:20px;
   }
 }
 @media (min-width:768px){
@@ -468,6 +501,7 @@ hr{
   }
   .container-sm-height{
     display:table;
+    width:100%;
   }
   .row-sm-height{
     display:table-row;
@@ -475,6 +509,9 @@ hr{
   .col-sm-height{
     display:table-cell;
     float:none;
+  }
+  .contact-method .col-sm-height{
+    vertical-align:middle;
   }
 }
 @media (max-width:991px){
