@@ -327,7 +327,7 @@ footer{
   margin-top:0;
   font-style:italic;
 }
-.loop-item-group hr{
+hr{
   margin-top:15px;
   margin-bottom:15px;
   border-color:#fff;
@@ -404,6 +404,20 @@ footer{
   margin-right:auto;
 }
 
+#imageContentRows{
+  margin-top:60px;
+}
+#imageContentRows .image-side{
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+#imageContentRows h2{
+  font-size:22px;
+  color:#c00;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
 
 @media (max-width:767px){
   #hero .caption>h2{
@@ -451,6 +465,16 @@ footer{
   }
   .footer-logo{
     float:left;
+  }
+  .container-sm-height{
+    display:table;
+  }
+  .row-sm-height{
+    display:table-row;
+  }
+  .col-sm-height{
+    display:table-cell;
+    float:none;
   }
 }
 @media (max-width:991px){
