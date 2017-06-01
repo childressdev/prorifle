@@ -47,6 +47,41 @@ body{
   color:#fff;
 }
 
+a{
+  color:#fff;
+}
+a:hover,
+a:focus{
+  color:#fff;
+  text-decoration:underline;
+}
+
+img.alignnone{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+img.aligncenter{
+  display:block;
+  max-width:100%;
+  height:auto;
+  margin:20px auto;
+}
+img.alignleft{
+  display:block;
+  max-width:100%;
+  height:auto;
+  float:left;
+  margin:20px 20px 20px 0px;
+}
+img.alignright{
+  display:block;
+  max-width:100%;
+  height:auto;
+  float:right;
+  margin:20px 0px 20px 20px;
+}
+
 .btn-main{
   display:inline-block;
   color:#fff;
@@ -112,6 +147,7 @@ body{
 .header-phone-social a{
   color:#fff;
   font-size:24px;
+  padding:0 5px;
 }
 .header-phone-social>.phone{
   font-weight:800;
@@ -156,14 +192,19 @@ body{
 .navbar-nav>li.list-social{
   border-left:2px solid #000;
 }
+
 .navbar-nav>li.list-phone>a{
   font-size:24px;
 }
 .navbar-nav>li.list-social>a{
   display:inline-block;
   font-size:24px;
-  padding:13px 15px;
+  padding:13px 5px;
 }
+.navbar-nav>li.list-social{
+  padding-left:10px;
+}
+
 .affix{
   top:0;
   width:100%;
@@ -247,12 +288,12 @@ footer{
   padding-top:30px;
   padding-bottom:20px;
 }
-footer .navbar-nav>li.list-social{
-  padding-left:10px;
+.copyright{
+  text-align:center;
+  margin-top:40px;
 }
-footer .navbar-nav>li.list-social>a{
-  padding-left:5px;
-  padding-right:5px;
+.copyright p{
+  margin-bottom:0;
 }
 
 
