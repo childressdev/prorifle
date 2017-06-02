@@ -251,7 +251,7 @@ img.alignright{
   text-align:center;
 }
 .rifle-type{
-  margin-top:40px;
+  margin-top:60px;
 }
 .rifle-type h2{
   font-size:70px;
@@ -265,6 +265,17 @@ img.alignright{
 }
 .rifle-type .btn-main{
   margin-top:40px;
+}
+.rifle-desc{
+  text-align:left;
+  margin-top:20px;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.rifle-desc h3{
+  font-size:14px;
+  font-weight:800;
 }
 
 .metal-bar{
