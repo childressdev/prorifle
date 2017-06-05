@@ -247,7 +247,8 @@ img.alignright{
   font-style:italic;
   text-align:center;
 }
-#rifleTypes{
+#rifleTypes,
+#rifleInfo{
   text-align:center;
 }
 .rifle-type{
@@ -456,6 +457,116 @@ hr{
   font-weight:800;
   text-transform:uppercase;
   color:#c00;
+}
+
+.color-options{
+  margin-top:40px;
+}
+.color-options h4{
+  font-size:14px;
+  font-weight:800;
+}
+.color-options .nav-tabs{
+  border:none;
+  display:inline-block;
+}
+.color-options .nav-tabs>li>a{
+  border:1px solid #fff;
+  border-radius:0;
+  padding:20px;
+}
+.color-options .nav-tabs>li.active>a:hover,
+.color-options .nav-tabs>li.active>a:focus{
+  border-bottom:1px solid #fff;
+}
+.color-options .nav-tabs>li+li>a{
+  margin-left:15px;
+}
+
+#rifleDetails{
+  margin-top:40px;
+  text-align:left;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+#rifleDetails>h3{
+  font-size:22px;
+  font-weight:800;
+  color:#c00;
+}
+
+#riflePrice{
+  background-color:#c00;
+  padding-top:25px;
+  padding-bottom:25px;
+  margin-top:40px;
+}
+#riflePrice p{
+  font-size:22px;
+  font-weight:800;
+}
+#riflePrice p>span{
+  display:block;
+  font-size:60px;
+}
+#riflePrice .btn-main{
+  margin-top:40px;
+  font-size:28px;
+  color:#000;
+  background-color:transparent;
+  -webkit-transition:color .3s ease;
+  transition:color .3s ease;
+}
+#riflePrice .btn-main:hover{
+  color:#fff;
+}
+
+#reviews{
+  margin-top:40px;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+#reviews h3{
+  font-size:22px;
+  font-weight:800;
+  color:#c00;
+}
+.reviews-list ul{
+  list-style:none;
+  padding-left:0;
+}
+.reviews-list ul>li>.review-body ul{
+  list-style:none;
+  padding-left:40px;
+}
+.reviews-list .review-header>p{
+  font-size:16px;
+  text-transform:uppercase;
+  font-weight:800;
+}
+.reviews-list .review-header>p i:first-child{
+  margin-left:20px;
+}
+.reviews-list .review-header>p i.fill{
+  color:#c00;
+}
+.reviews-list .review-header{
+  margin-top:30px;
+}
+.reviews-list>ul{
+  margin-top:-15px;
+}
+.leave-review{
+  margin-top:60px;
+}
+.leave-review .form-control{
+  border-radius:0;
+}
+.leave-review .btn-main{
+  font-size:16px;
+  font-weight:600;
 }
 
 
