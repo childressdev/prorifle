@@ -13,7 +13,16 @@ $(document).ready(function($){
     }        
   });
 
-  $('#navRed').affix({
+  $('#navRed.hp-nav').affix({
     offset: {top: $('#hero').outerHeight(true)}
+  });
+
+  $(window).scroll(function(){
+    if($('#navClear')[0].getBoundingClientRect().bottom < 50){
+      $('#navRed').addClass('show-red-nav');
+    }
+    else{
+      $('#navRed').removeClass('show-red-nav');
+    }
   });
 });
