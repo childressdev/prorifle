@@ -595,6 +595,34 @@ hr{
   display:inline-block;
 }
 
+#sort{
+  margin-top:30px;
+  text-align:right;
+}
+#sort select{
+  background-color:#c00;
+  padding:2px 10px;
+}
+.product-card{
+  margin-top:60px;
+}
+.product-card .product-details>h3{
+  font-size:22px;
+  font-weight:800;
+  color:#c00;
+  text-transform:uppercase;
+}
+.product-details .price{
+  font-style:italic;
+}
+.add-to-cart{
+  text-align:center;
+}
+.add-to-cart>.btn-main{
+  font-size:16px;
+  font-weight:600;
+}
+
 
 @media (max-width:767px){
   #hero .caption>h2{
@@ -664,6 +692,9 @@ hr{
   }
   .contact-method .col-sm-height{
     vertical-align:middle;
+  }
+  #footerNavbar .navbar-right{
+    margin-right:0;
   }
 }
 @media (max-width:991px){
