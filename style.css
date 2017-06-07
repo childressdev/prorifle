@@ -166,11 +166,13 @@ img.alignright{
 }
 .navbar-nav>li>a:hover,
 .navbar-nav>li>a:focus,
-.navbar-nav>li.active>a{
+.navbar-nav>li.active>a,
+.navbar-nav>li.current-menu-item>a{
   background-color:transparent;
 }
 .navbar-nav>li>a:hover:after,
-.navbar-nav>li.active>a:after{
+.navbar-nav>li.active>a:after,
+.navbar-nav>li.current-menu-item>a:after{
   content:"";
   position:absolute;
   height:36px;
