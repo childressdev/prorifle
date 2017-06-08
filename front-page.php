@@ -1,11 +1,7 @@
 <?php get_header(); ?>
 <main id="main">
   <div class="container">
-    <?php if(get_field('main_section_title')): ?>
-      <h1><?php the_field('main_section_title'); ?></h1>
-    <?php else: ?>
-      <h1>WE CRAFT THE MOST PRECISE BENCH REST, PRECISION, AND TACTICAL RIFLES ON THE MARKET</h1>
-    <?php endif; ?>
+    <?php get_template_part('partials/main-section-title'); ?>
     <section id="rifleTypes">
       <?php 
         if(have_rows('featured_products')): while(have_rows('featured_products')): the_row(); 
