@@ -23,7 +23,7 @@
         </div>
       </div>
     <?php endwhile; wp_pagenavi(); endif; ?>
-    <?php get_template_part('partials/quote.php'); ?>
+    <?php get_template_part('partials/quote'); ?>
   </div>
 </main>
 <?php get_footer(); ?>

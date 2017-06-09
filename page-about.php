@@ -19,7 +19,7 @@
     <?php $i++; endwhile; endif; ?>
   </section>
   <div class="container">
-    <?php get_template_part('partials/quote.php'); ?>
+    <?php get_template_part('partials/quote'); ?>
   </div>
 </main>
 <?php get_footer(); ?>
