@@ -8,6 +8,27 @@ $product_featured_image = $product->get_image($image_size, $attr);
 //$attr = array('class' => 'img-responsive')
 echo $product_featured_image; //outputs html img
 
+//
+// product categories
+//
+
+$categories = get_the_terms( 31, 'product_cat' ); 
+// wrapper to hide any errors from top level categories or products without category
+if ( $categories && ! is_wp_error( $categories ) ) : 
+
+    // loop through each cat
+    foreach($categories as $category) :
+      // get the children (if any) of the current cat
+      $children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
+
+      if ( count($children) == 0 ) {
+          // if no children, then echo the category name.
+          echo $category->name;
+      }
+     
+    endforeach;
+
+endif;
 
 //
 // var_dump of wc_get_product($product_id);

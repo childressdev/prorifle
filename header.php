@@ -76,7 +76,7 @@
         }
       }
     ?>
-    <section id="hero"<?php if(is_front_page()){ ' class="hp-hero"'; } ?> style="background-image:url(<?php echo $header_image; ?>); <?php echo $header_image_css; ?>">
+    <section id="hero"<?php if(is_front_page()){ echo ' class="hp-hero"'; } ?> style="background-image:url(<?php echo $header_image; ?>); <?php echo $header_image_css; ?>">
       <div class="caption-wrapper">
         <div class="caption">
           <h2><?php echo get_field('header_caption') ? get_field('header_caption') : get_the_title(); ?></h2>

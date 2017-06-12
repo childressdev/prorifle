@@ -27,8 +27,8 @@ function prorifle_scripts(){
 
   wp_register_script(
     'font-awesome',
-    '//use.fontawesome.com/004c3c54fb.js',
-  )
+    '//use.fontawesome.com/004c3c54fb.js'
+  );
     
   wp_register_script(
     'prorifle-scripts', 
@@ -258,4 +258,14 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 	}
 }
 
-require_once(woo-functions.php);
+require_once('woo-functions.php');
+
+if(function_exists('acf_add_options_page')){
+	acf_add_options_page(array(
+		'page_title' => 'Global Site Settings',
+		'menu_title' => 'Global Site Settings',
+		'menu_slug' => 'global-settings',
+		'capability' => 'edit_posts',
+		'redirect' > false
+	));
+}

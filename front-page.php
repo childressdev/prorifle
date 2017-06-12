@@ -5,13 +5,12 @@
     <section id="rifleTypes">
       <?php 
         if(have_rows('featured_products')): while(have_rows('featured_products')): the_row(); 
-          $product_id = get_sub_field('product');
-          $product = wc_get_product($product_id);
+          $product = prorifle_get_product_info(get_sub_field('product'));
       ?>
         <div class="rifle-type">
-          <h2 class="markers"><?php echo $product->get_name(); ?></h2>
-          <?php echo $product->get_image('shop_single', array('class' => 'img-responsive center-block', 'alt' => $product->get_name())); ?>
-          <a href="<?php echo get_permalink($product_id); ?>" class="btn-main">Learn More</a>
+          <h2 class="markers"><?php echo $product['category']; ?></h2>
+          <?php echo $product['image']; ?>
+          <a href="<?php echo $product['permalink']; ?>" class="btn-main">Learn More</a>
         </div>
       <?php endwhile; endif; ?>
     </section>
