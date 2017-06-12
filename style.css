@@ -609,11 +609,18 @@ hr{
 .product-card{
   margin-top:60px;
 }
-.product-card .product-details>h3{
+.product-card .product-details h3{
   font-size:22px;
   font-weight:800;
   color:#c00;
   text-transform:uppercase;
+}
+.product-card img{
+  display:block;
+  max-width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  height:auto;
 }
 .product-details .price{
   font-style:italic;

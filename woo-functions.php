@@ -31,7 +31,47 @@ function prorifle_wrapper_end() {
   echo '</main></div><!-- .container -->';
 }
 
+//remove sidebar
 remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+
+//change shop page title
+add_filter('woocommerce_page_title', 'prorifle_shop_page_title');
+function prorifle_shop_page_title($page_title){
+  if($page_title == 'Shop'){
+    $shop_page = get_page_by_path('shop');
+    $shop_page_id = $shop_page->ID;
+    if(get_field('main_section_title', $shop_page_id)){
+      return get_field('main_section_title', $shop_page_id);
+    }
+    else{
+      return 'BROWSE OUR SELECTION OF RIFLES, AMMUNITION, SCOPES, AND MORE';
+    }
+  }
+}
+
+//change shop loop product title
+add_action('woocommerce_before_shop_loop_item_title', 'prorifle_product_details_container_open', 20);
+function prorifle_product_details_container_open(){
+  echo '<div class="product-details">';
+}
+
+remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+add_action('woocommerce_shop_loop_item_title', 'prorifle_template_loop_product_title', 10);
+function prorifle_template_loop_product_title(){
+  echo '<h3 class="woocommerce-loop-product__title">' . get_the_title() . '</h3>';
+}
+
+add_action('woocommerce_after_shop_loop_item_title', 'prorifle_after_shop_loop_item_title', 20);
+function prorifle_after_shop_loop_item_title(){
+  global $product;
+  echo '<hr />';
+  echo '<p>' . $product->get_short_description() . '</p>';
+}
+
+add_action('woocommerce_after_shop_loop_item', 'prorifle_product_details_container_close', 20);
+function prorifle_product_details_container_close(){
+  echo '</div><!-- .product-details -->';
+}
 
 //
 // Get product info for use outside the shop

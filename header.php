@@ -69,7 +69,19 @@
     <?php
       $header_image = get_stylesheet_directory_uri() . '/images/shooting-target.jpg';
       $header_image_css = 'background-position:center center;';
-      if(get_field('header_image')){
+
+      $shop_page = get_page_by_path('shop');
+      $shop_page_id = $shop_page->ID;
+
+      if(is_shop()){
+        if(get_field('header_image', $shop_page_id)){
+          $header_image = get_field('header_image', $shop_page_id);
+          if(get_field('header_image_css', $shop_page_id)){
+            $header_image_css = get_field('header_image_css', $shop_page_id);
+          }
+        }
+      }
+      elseif(get_field('header_image')){
         $header_image = get_field('header_image');
         if(get_field('header_image_css')){
           $header_image_css = get_field('header_image_css');
@@ -79,7 +91,27 @@
     <section id="hero"<?php if(is_front_page()){ echo ' class="hp-hero"'; } ?> style="background-image:url(<?php echo $header_image; ?>); <?php echo $header_image_css; ?>">
       <div class="caption-wrapper">
         <div class="caption">
-          <h2><?php echo get_field('header_caption') ? get_field('header_caption') : get_the_title(); ?></h2>
+          <h2>
+            <?php 
+              //echo get_field('header_caption') ? get_field('header_caption') : get_the_title(); 
+              if(is_shop()){
+                if(get_field('header_caption', $shop_page_id)){
+                  echo get_field('header_caption', $shop_page_id);
+                }
+                else{
+                  echo 'Shop';
+                }
+              }
+              else{
+                if(get_field('header_caption')){
+                  echo get_field('header_caption');
+                }
+                else{
+                  echo get_the_title();
+                }
+              }
+            ?>
+          </h2>
         </div>
       </div>
       <a href="#main" id="scrollDown" class="hidden-xs"></a>
