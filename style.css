@@ -40,6 +40,21 @@
   font-style: normal;
 }
 
+@font-face{
+	font-family:star;
+  src:url(Fonts/star.eot);
+  src:url(Fonts/star.eot?#iefix) format("embedded-opentype"),url(Fonts/star.woff) format("woff"),url(Fonts/star.ttf) format("truetype"),url(Fonts/star.svg#star) format("svg");
+  font-weight:400;
+  font-style:normal;
+}
+@font-face{
+	font-family:WooCommerce;
+  src:url(Fonts/WooCommerce.eot);
+  src:url(Fonts/WooCommerce.eot?#iefix) format("embedded-opentype"),url(Fonts/WooCommerce.woff) format("woff"),url(Fonts/WooCommerce.ttf) format("truetype"),url(Fonts/WooCommerce.svg#WooCommerce) format("svg");
+  font-weight:400;
+  font-style:normal;
+}
+
 body{
   font-family:AvenirNext, sans-serif;
   font-weight:600;
@@ -166,11 +181,13 @@ img.alignright{
 }
 .navbar-nav>li>a:hover,
 .navbar-nav>li>a:focus,
-.navbar-nav>li.active>a{
+.navbar-nav>li.active>a,
+.navbar-nav>li.current-menu-item>a{
   background-color:transparent;
 }
 .navbar-nav>li>a:hover:after,
-.navbar-nav>li.active>a:after{
+.navbar-nav>li.active>a:after,
+.navbar-nav>li.current-menu-item>a:after{
   content:"";
   position:absolute;
   height:36px;
@@ -503,6 +520,7 @@ hr{
   max-width:800px;
   margin-left:auto;
   margin-right:auto;
+  padding-bottom:40px;
 }
 #rifleDetails>h3{
   font-size:22px;
@@ -514,7 +532,8 @@ hr{
   background-color:#c00;
   padding-top:25px;
   padding-bottom:25px;
-  margin-top:40px;
+  margin-top:10px;
+  text-align:center;
 }
 #riflePrice p{
   font-size:22px;
@@ -595,6 +614,209 @@ hr{
   display:inline-block;
 }
 
+#sort{
+  margin-top:30px;
+  text-align:right;
+}
+#sort select{
+  background-color:#c00;
+  padding:2px 10px;
+}
+.product-card{
+  margin-top:60px;
+}
+.product-card .product-details h3{
+  font-size:22px;
+  font-weight:800;
+  color:#c00;
+  text-transform:uppercase;
+}
+.product-details .price{
+  font-style:italic;
+}
+.add-to-cart{
+  text-align:center;
+}
+.add-to-cart>.btn-main{
+  font-size:16px;
+  font-weight:600;
+}
+
+#mainContent{
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:40px;
+}
+#mainContent>h3{
+  font-size:22px;
+  font-weight:800;
+  color:#c00;
+}
+
+.woocommerce-product-gallery{
+  margin-top:40px;
+}
+.wp-post-image{
+  display:block;
+  max-width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  height:auto;
+}
+.product table.variations{
+  margin-top:40px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.product table.variations .value>select{
+  width:100%;
+  background-color:#c00;
+  padding:2px 10px;
+}
+.product table.variations .label>label{
+  font-size:14px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+#riflePrice .quantity>input{
+  background-color:transparent;
+  color:#000;
+  font-size:28px;
+  font-weight:800;
+  border:1px solid #fff;
+  text-align:center;
+  max-width:150px;
+  -webkit-transition:color .3s ease;
+  transition:color .3s ease;
+}
+#riflePrice .quantity>input:hover{
+  color:#fff;
+}
+#riflePrice .button{
+  display:inline-block;
+  font-size:28px;
+  color:#000;
+  font-weight:800;
+  background-color:transparent;
+  border:1px solid #fff;
+  text-transform:uppercase;
+  -webkit-transition:color .3s ease;
+  transition:color .3s ease;
+  margin-top:22px;
+}
+#riflePrice .button:hover{
+  color:#fff;
+}
+#rifleReviews .container{
+  max-width:800px;
+  margin-top:40px;
+}
+#rifleReviews .nav-tabs>li>a{
+  color:#c00;
+  font-size:22px;
+  font-weight:800;
+  text-transform:uppercase;
+  -webkit-transition:color .3s ease;
+  transition:color .3s ease;
+  border:none;
+}
+#rifleReviews .nav-tabs>li.active>a,
+#rifleReviews .nav-tabs>li>a:hover,
+#rifleReviews .nav-tabs>li>a:focus{
+  background-color:transparent;
+  color:#fff;
+  border:none;
+}
+#rifleReviews .nav-tabs{
+  border-color:#fff;
+}
+#rifleReviews .nav-tabs>li:first-child{
+  margin-left:-15px;
+}
+#rifleReviews .tab-content .panel{
+  background-color:transparent;
+  text-align:left;
+}
+
+#reviews #respond .comment-form-rating>label{
+  font-size:16px;
+  text-transform:uppercase;
+}
+#reviews p.stars{
+  display:inline-block;
+  margin-left:20px;
+}
+#reviews p.stars a{
+  position:relative;
+  height:1em;
+  width:1em;
+  text-indent:-999em;
+  display:inline-block;
+  text-decoration:none;
+  box-shadow:none;
+  margin-right:5px;
+}
+#reviews p.stars a::before{
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  width:1em;
+  height:1em;
+  line-height:1;
+  font-family:FontAwesome;
+  content:'\f005';
+  text-indent:0;
+}
+#reviews p.stars a:hover{
+  color:#c00;
+}
+#reviews .star-rating{
+  overflow:hidden;
+  position:relative;
+  height:1em;
+  line-height:1;
+  font-size:1em;
+  width:5.4em;
+  font-family:star;
+}
+#reviews .star-rating::before{
+  content:'\73\73\73\73\73';
+  float:left;
+  top:0;
+  left:0;
+  position:absolute;
+}
+#reviews .star-rating span{
+  overflow:hidden;
+  float:left;
+  top:0;
+  left:0;
+  position:absolute;
+  padding-top:1.5em;
+}
+#reviews .star-rating span::before{
+  content:'\53\53\53\53\53';
+  top:0;
+  position:absolute;
+  left:0;
+}
+#reviews p.stars.selected a.active::before,
+#reviews p.stars:hover a::before{
+  color:#c00;
+}
+#reviews p.stars a:hover~a::before{
+  color:#fff;
+}
+#reviews p.stars.selected a:not(.active)::before{
+  color:#c00;
+}
+#reviews p.stars.selected a.active~a::before{
+  color:#fff;
+}
+
 
 @media (max-width:767px){
   #hero .caption>h2{
@@ -664,6 +886,9 @@ hr{
   }
   .contact-method .col-sm-height{
     vertical-align:middle;
+  }
+  #footerNavbar .navbar-right{
+    margin-right:0;
   }
 }
 @media (max-width:991px){
