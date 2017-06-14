@@ -74,6 +74,84 @@ function prorifle_product_details_container_close(){
 }
 
 //
+//product page changes
+//
+
+//add main section title
+add_action('woocommerce_before_main_content', 'prorifle_main_section_title', 25);
+function prorifle_main_section_title(){
+  if(!is_shop()){
+    get_template_part('partials/main-section-title');
+    echo '</div><!-- .container -->';
+  }
+}
+
+//add category title (with the arrows on either side)
+add_action('woocommerce_before_single_product_summary', 'prorifle_show_category_header', 15);
+function prorifle_show_category_header(){
+  global $product;
+
+  $product_cat = '';
+  $product_cat_ids = $product->get_category_ids();
+  if($product_cat_ids && !is_wp_error($product_cat_ids)){
+    foreach($product_cat_ids as $id){
+      $children = get_categories(array('taxonomy' => 'product_cat', 'parent' => $id));
+      if(count($children) == 0){
+        $product_cat = get_cat_name($id);
+      }
+    }
+  }
+
+  echo '<div class="rifle-type"><div class="container">';
+  echo '<h2 class="markers">' . $product_cat . '</h2>';
+  echo '</div><!-- .container --></div><!-- .rifle-type -->';
+}
+
+//customize .summary .entry-summary
+//removing all hooks from single product summary and putting them within either the variable or 
+// or single template files
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+add_action('woocommerce_before_add_to_cart_button', 'woocommerce_template_single_title', 5);
+add_action('woocommerce_before_add_to_cart_button', 'prorifle_template_single_product_description', 6);
+
+add_action('prorifle_before_add_to_cart_button', 'woocommerce_template_single_rating', 10);
+add_action('prorifle_before_add_to_cart_button', 'woocommerce_template_single_meta', 15);
+
+remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10);
+add_action('woocommerce_before_add_to_cart_button', 'prorifle_single_variation', 10);
+function prorifle_single_variation(){
+  echo '<div class="container">';
+  do_action('prorifle_before_add_to_cart_button');
+  echo '<div class="woocommerce-variation single_variation"></div></div>';
+}
+
+// show description under title on single product page
+function prorifle_template_single_product_description(){
+  wc_get_template('single-product/tabs/description.php');
+}
+
+// show price after qty field and before add to cart btn
+// single-product/add-to-cart/variation-add-to-cart-button.php
+add_action('woocommerce_after_add_to_cart_quantity', 'woocommerce_template_single_price', 10);
+
+// remove description tab
+add_filter('woocommerce_product_tabs', 'prorifle_remove_description_tab', 98);
+function prorifle_remove_description_tab($tabs){
+  unset($tabs['description']);
+
+  // set review tab 1st
+  $tabs['reviews']['priority'] = 5;
+  $tabs['additional_information']['priority'] = 10;
+
+  return $tabs;
+}
+
+//
 // Get product info for use outside the shop
 // 
 // @param int $product_id
