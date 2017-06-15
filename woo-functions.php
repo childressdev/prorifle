@@ -151,6 +151,9 @@ function prorifle_remove_description_tab($tabs){
   return $tabs;
 }
 
+// remove avatar from reviews lists
+remove_action('woocommerce_review_before', 'woocommerce_review_display_gravatar', 10);
+
 //
 // Get product info for use outside the shop
 // 
