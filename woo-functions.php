@@ -146,7 +146,11 @@ function prorifle_remove_description_tab($tabs){
 
   // set review tab 1st
   $tabs['reviews']['priority'] = 5;
-  $tabs['additional_information']['priority'] = 10;
+
+  global $product;
+  if($product->has_attributes() || $product->has_dimensions() || $product->has_weight()){
+    $tabs['additional_information']['priority'] = 10;
+  }
 
   return $tabs;
 }
@@ -180,6 +184,7 @@ function prorifle_get_product_info($product_id){
   $product['name'] = $wc_product->get_name();
   $product['image'] = $wc_product->get_image('shop_single', array('class' => 'img-responsive center-block', 'alt' => $wc_product->get_name()));
   $product['permalink'] = get_permalink($product_id);
+  $product['short_description'] = $wc_product->get_short_description();
 
   return $product;
 }
