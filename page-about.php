@@ -8,11 +8,11 @@
       <div class="container-fluid container-sm-height">
         <div class="row row-sm-height">
           <div class="col-sm-6 col-sm-height<?php if($i%2==0){ echo ' col-sm-push-6'; } ?>">
-            <h2><?php the_field('section_title'); ?></h2>
+            <h2><?php the_sub_field('section_title'); ?></h2>
             <hr />
-            <?php the_field('section_content'); ?>
+            <?php the_sub_field('section_content'); ?>
           </div>
-          <div class="col-sm-6 col-sm-height image-side<?php if($i%2==0){ echo ' col-sm-pull-6'; { ?>" style="background-image:url(<?php the_field('section_image'); ?>); <?php the_field('section_image_css'); ?>">
+          <div class="col-sm-6 col-sm-height image-side<?php if($i%2==0){ echo ' col-sm-pull-6'; } ?>" style="background-image:url(<?php the_sub_field('section_image'); ?>); <?php the_sub_field('section_image_css'); ?>">
           </div>
         </div>
       </div>
