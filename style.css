@@ -947,11 +947,13 @@ input#place_order:hover,
   border-radius:0;
   border-color:#000;
 }
-.select2-results{
+.select2-results,
+.select2-search__field{
   color:#000;
 }
 
-.woocommerce-message a{
+.woocommerce-message a,
+.woocommerce-info a{
   color:#000;
 }
 
