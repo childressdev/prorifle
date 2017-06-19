@@ -54,6 +54,8 @@ get_header( 'shop' ); ?>
     </header>
 
 		<?php if ( have_posts() ) : ?>
+</div>
+<div class="container">
 
 			<?php
 				/**
@@ -65,14 +67,13 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_before_shop_loop' );
 			?>
-
 			<?php woocommerce_product_loop_start(); ?>
-        <?php $i=1; if($i%3==0){ echo '<div class="clearfix"></div>'; } ?>
+        <?php $i=0; ?>
 
 				<?php woocommerce_product_subcategories(); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
-
+					<?php if($i%3==0){ echo '<div class="clearfix"></div>'; } ?>
 					<?php
 						/**
 						 * woocommerce_shop_loop hook.
@@ -84,9 +85,8 @@ get_header( 'shop' ); ?>
 
 					<?php wc_get_template_part( 'content', 'product' ); ?>
 
-				<?php endwhile; // end of the loop. ?>
+				<?php $i++; endwhile; // end of the loop. ?>
 
-        <?php $i++; ?>
 			<?php woocommerce_product_loop_end(); ?>
 
 			<?php
