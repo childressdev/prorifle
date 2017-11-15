@@ -137,7 +137,7 @@ img.alignright{
   box-shadow:inset 0px -250px 200px -100px #000;
 }
 #hero.hp-hero{
-  height:100vh;
+  height:auto;
 }
 #hero .caption-wrapper{
   display:table;
@@ -152,15 +152,41 @@ img.alignright{
   font-family:AvenirNext, sans-serif;
   font-weight:800;
   color:#fff;
-  font-size:60px;
+  font-size:45px;
   text-align:center;
   text-transform:uppercase;
-  padding-left:15px;
-  padding-right:15px;
   max-width:1000px;
   margin-left:auto;
   margin-right:auto;
 }
+.hp-hero .caption{
+  margin-top:10%;
+  margin-bottom:10%;
+}
+.hp-hero .category-link{
+  display:block;
+  margin-top:40px;
+  position:relative;
+  text-align:center;
+  border:3px solid #fff;
+  max-width:290px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.category-link .category-link-title{
+  background-color:rgba(204,0,0,.7);
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+.category-link .category-link-title>h3{
+  margin-top:5px;
+  margin-bottom:5px;
+  text-transform:uppercase;
+  position:relative;
+  display:inline-block;
+}
+
 .header-phone-social{
   text-align:right;
 }
@@ -958,9 +984,13 @@ input#place_order:hover,
 }
 
 
+
 @media (max-width:767px){
   #hero .caption>h2{
     font-size:28px;
+  }
+  .hp-hero .caption{
+    margin-top:30%;
   }
   #navRed{
     position:fixed;
@@ -988,6 +1018,23 @@ input#place_order:hover,
   .woocommerce-cart-form .shop_table .button{
     float:left !important;
     width:auto !important;
+  }
+  h3.small-marker:before,
+  h3.small-marker:after{
+    content:"";
+    position:absolute;
+    height:7px;
+    width:61px;
+    background-image:url(images/sprites.png);
+    top:8px;
+  }
+  h3.small-marker:before{
+    background-position:-23px -105px;
+    left:-66px;
+  }
+  h3.small-marker:after{
+    background-position:-23px -94px;
+    right:-66px;
   }
 }
 @media (min-width:768px){
@@ -1039,5 +1086,24 @@ input#place_order:hover,
   h2.markers:before,
   h2.markers:after{
     top:18px;
+  }
+}
+@media (min-width:992px){
+  h3.small-marker:before,
+  h3.small-marker:after{
+    content:"";
+    position:absolute;
+    height:7px;
+    width:61px;
+    background-image:url(images/sprites.png);
+    top:8px;
+  }
+  h3.small-marker:before{
+    background-position:-23px -105px;
+    left:-66px
+  }
+  h3.small-marker:after{
+    background-position:-23px -94px;
+    right:-66px;
   }
 }
