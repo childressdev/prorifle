@@ -216,8 +216,6 @@ img.alignright{
   padding-top:3px;
   padding-bottom:3px;
   z-index:9999;
-  position:fixed;
-  top:-999px;
   width:100%;
   -webkit-transition:top .3s ease;
   transition:top .3s ease;
@@ -993,9 +991,6 @@ input#place_order:hover,
   }
 }
 @media (min-width:768px){
-  #navRed.hp-nav.affix-top{
-    position:initial;
-  }
   h2.markers:before,
   h2.markers:after{
     content:"";

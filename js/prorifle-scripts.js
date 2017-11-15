@@ -12,11 +12,12 @@ $(document).ready(function($){
       }
     }        
   });
-
+/*
   $('#navRed.hp-nav').affix({
     offset: {top: $('#hero').outerHeight(true)}
   });
-
+*/
+/*
   $(window).scroll(function(){
     if($('#navClear')[0].getBoundingClientRect().bottom < 50){
       $('#navRed').addClass('show-red-nav');
@@ -25,4 +26,5 @@ $(document).ready(function($){
       $('#navRed').removeClass('show-red-nav');
     }
   });
+*/
 });
