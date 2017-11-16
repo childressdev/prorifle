@@ -194,6 +194,5 @@
             </h2>
           </div>
         </div>
-        <a href="#main" id="scrollDown" class="hidden-xs"></a>
       </section>
     <?php endif; ?>
