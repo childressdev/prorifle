@@ -147,6 +147,10 @@
                     $cat_id = $cat->term_id;
                     $cat_image_id = get_woocommerce_term_meta($cat_id, 'thumbnail_id', true);
                     $cat_image = wp_get_attachment_url($cat_image_id);
+                    //var_dump($cat_image);
+                    if($cat_image == false){
+                      $cat_image = get_field('default_product_image', 'option');
+                    }
                     if(get_sub_field('featured_category_image')){
                       $cat_image = get_sub_field('featured_category_image');
                     }
