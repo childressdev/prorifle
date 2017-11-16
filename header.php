@@ -45,54 +45,6 @@
 </script>
 </head>
   <body>
-    <nav id="navClear" class="navbar hidden-xs">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="<?php echo home_url(); ?>" class="logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/pro-rifles-logo.png" class="img-responsive" alt="PRO Rifles Logo" /></a>
-        </div>
-        <div class="header-phone-social">
-          <a href="tel:<?php the_field('phone_number', 'option'); ?>" class="phone"><?php the_field('phone_number', 'option'); ?></a>
-          <?php if(get_field('twitter')): ?>
-            <a href="<?php the_field('twitter'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
-          <?php endif;
-          if(get_field('facebook')): ?>
-            <a href="<?php the_field('facebook'); ?>" target="_blank"><i class="fa fa-facebook-square"></i></a>
-          <?php endif; 
-          if(get_field('instagram')): ?>
-            <a href="<?php the_field('instagram'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
-          <?php endif; ?>
-        </div>
-        <?php
-          $nav_defaults = array(
-            'theme_location' => 'clear-nav',
-            'menu' => '',
-            'container' => 'div',
-            'container_class' => '',
-            'container_id' => 'navbarClear',
-            'menu_class' => 'nav navbar-nav navbar-right',
-            'menu_id' => '',
-            'echo' => true,
-            'fallback_cb' => 'prorifles_clear_fallback_menu',
-            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-            'depth' => 2,
-            'walker' => new wp_bootstrap_navwalker()
-          );
-          wp_nav_menu($nav_defaults);
-
-          function prorifles_clear_fallback_menu(){ ?>
-            <div id="navbarClear">
-              <ul class="nav navbar-nav navbar-right">
-                <li<?php if(is_page('rifles')){ echo ' class="active"'; } ?>><a href="<?php echo home_url('rifles'); ?>">Rifles</a></li>
-                <li<?php if(is_page('about')){ echo ' class="active"'; } ?>><a href="<?php echo home_url('about'); ?>">About</a></li>
-                <li<?php if(is_page('shop')){ echo ' class="active"'; } ?>><a href="<?php echo home_url('shop'); ?>">Shop</a></li>
-                <li<?php if(is_page('build-your-own')){ echo ' class="active"'; } ?>><a href="<?php echo home_url('build-your-own'); ?>">Build Your Own</a></li>
-                <li<?php if(is_page('blog')){ echo ' class="active"'; } ?>><a href="<?php echo home_url('blog'); ?>">Blog</a></li>
-                <li<?php if(is_page('contact')){ echo ' class="active"'; } ?>><a href="<?php echo home_url('contact'); ?>">Contact</a></li>
-              </ul>
-            </div>
-        <?php } ?>
-      </div>
-    </nav>
     <?php
       $header_image = get_stylesheet_directory_uri() . '/images/shooting-target.jpg';
       $header_image_css = 'background-position:center center;';
@@ -115,34 +67,6 @@
         }
       }
     ?>
-    <section id="hero"<?php if(is_front_page()){ echo ' class="hp-hero"'; } ?> style="background-image:url(<?php echo $header_image; ?>); <?php echo $header_image_css; ?>">
-      <div class="caption-wrapper">
-        <div class="caption">
-          <h2>
-            <?php 
-              //echo get_field('header_caption') ? get_field('header_caption') : get_the_title(); 
-              if(is_shop()){
-                if(get_field('header_caption', $shop_page_id)){
-                  echo get_field('header_caption', $shop_page_id);
-                }
-                else{
-                  echo 'Shop';
-                }
-              }
-              else{
-                if(get_field('header_caption')){
-                  echo get_field('header_caption');
-                }
-                else{
-                  echo get_the_title();
-                }
-              }
-            ?>
-          </h2>
-        </div>
-      </div>
-      <a href="#main" id="scrollDown" class="hidden-xs"></a>
-    </section>
     <nav id="navRed" class="navbar hp-nav">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -208,3 +132,64 @@
           <?php } ?>
       </div>
     </nav>
+    <?php if(is_front_page()): ?>
+      <section id="hero" class="hp-hero" style="background-image:url(<?php echo $header_image; ?>); <?php echo $header_image_css; ?>">
+        <div class="container-fluid">
+          <div class="caption">
+            <h2><?php echo get_field('header_caption') ? get_field('header_caption') : ''; ?></h2>
+          </div>
+          <?php if(have_rows('featured_categories')): ?>
+            <div class="row">
+              <?php while(have_rows('featured_categories')): the_row(); ?>
+                <div class="col-sm-3">
+                  <?php
+                    $cat = get_sub_field('featured_category');
+                    $cat_id = $cat->term_id;
+                    $cat_image_id = get_woocommerce_term_meta($cat_id, 'thumbnail_id', true);
+                    $cat_image = wp_get_attachment_url($cat_image_id);
+                    if(get_sub_field('featured_category_image')){
+                      $cat_image = get_sub_field('featured_category_image');
+                    }
+                  ?>
+                  <a href="<?php echo get_term_link($cat_id, 'product_cat'); ?>" class="category-link">
+                    <img src="<?php echo $cat_image; ?>" class="img-responsive center-block" alt="" />
+                    <div class="category-link-title">
+                      <h3 class="small-marker"><?php echo $cat->name; ?></h3>
+                    </div>
+                  </a>
+                </div>
+              <?php endwhile; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+      </section>
+    <?php else: ?>
+      <section id="hero" style="background-image:url(<?php echo $header_image; ?>); <?php echo $header_image_css; ?>">
+        <div class="caption-wrapper">
+          <div class="caption">
+            <h2>
+              <?php 
+                //echo get_field('header_caption') ? get_field('header_caption') : get_the_title(); 
+                if(is_shop()){
+                  if(get_field('header_caption', $shop_page_id)){
+                    echo get_field('header_caption', $shop_page_id);
+                  }
+                  else{
+                    echo 'Shop';
+                  }
+                }
+                else{
+                  if(get_field('header_caption')){
+                    echo get_field('header_caption');
+                  }
+                  else{
+                    echo get_the_title();
+                  }
+                }
+              ?>
+            </h2>
+          </div>
+        </div>
+        <a href="#main" id="scrollDown" class="hidden-xs"></a>
+      </section>
+    <?php endif; ?>
