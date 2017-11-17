@@ -52,6 +52,8 @@ function prorifle_styles(){
   wp_enqueue_style('prorifle');
 }
 
+register_nav_menu( 'red-nav', 'Header Navigation' );
+
 /**
  * Class Name: wp_bootstrap_navwalker
  * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
