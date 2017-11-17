@@ -76,7 +76,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="<?php echo home_url(); ?>" class="mini-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/pro-rifles-logo-small.png" class="img-responsive" alt="PRO Rifles Logo" /></a>
+          <a href="<?php echo home_url(); ?>" class="mini-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/pro-rifles-logo-135.png" class="img-responsive" alt="PRO Rifles Logo" /></a>
         </div>
         <?php
           $additional_menu_items = '<li class="list-phone"><a href="'. get_field('phone_number', 'option') . '">' . get_field('phone_number', 'option') . '</a></li>';
