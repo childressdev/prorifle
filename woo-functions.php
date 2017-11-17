@@ -44,7 +44,7 @@ function prorifle_shop_page_title($page_title){
       return get_field('main_section_title', $shop_page_id);
     }
     else{
-      return 'BROWSE OUR SELECTION OF RIFLES, AMMUNITION, SCOPES, AND MORE';
+      return '';
     }
   }
 }
