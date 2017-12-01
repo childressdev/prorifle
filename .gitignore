@@ -70,4 +70,7 @@ $RECYCLE.BIN/
 
 # Custom
 PSDs/
+customer_notes/
+Archive/
 *.txt
+*.docx
