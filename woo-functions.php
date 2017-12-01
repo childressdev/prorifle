@@ -87,7 +87,7 @@ function prorifle_main_section_title(){
 }
 
 //add category title (with the arrows on either side)
-add_action('woocommerce_before_single_product_summary', 'prorifle_show_category_header', 15);
+//add_action('woocommerce_before_single_product_summary', 'prorifle_show_category_header', 15);
 function prorifle_show_category_header(){
   global $product;
 

@@ -256,20 +256,26 @@ img.alignright{
   padding-top:4px;
 }
 .navbar-nav>li.list-phone,
-.navbar-nav>li.list-social{
+.navbar-nav>li.list-social,
+.navbar-nav>li.cart-account{
   border-left:2px solid #000;
 }
 
 .navbar-nav>li.list-phone>a{
   font-size:24px;
 }
-.navbar-nav>li.list-social>a{
+.navbar-nav>li.list-social>a,
+.navbar-nav>li.cart-account>a{
   display:inline-block;
   font-size:24px;
   padding:13px 5px;
 }
-.navbar-nav>li.list-social{
+.navbar-nav>li.list-social,
+.navbar-nav>li.cart-account{
   padding-left:10px;
+}
+.navbar-nav>li.list-social{
+  padding-right:10px;
 }
 
 .affix{
@@ -987,6 +993,16 @@ input#place_order:hover,
 .woocommerce-loop-category__title mark.count{
   color:#c00;
   background-color:transparent;
+}
+
+#imageContentRows .container-sm-height{
+  min-height:260px;
+}
+#imageContentRows .row-sm-height{
+  height:100%;
+}
+#imageContentRows .col-sm-height.image-side{
+  min-height:260px;
 }
 
 

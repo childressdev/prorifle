@@ -52,7 +52,7 @@
       $shop_page = get_page_by_path('shop');
       $shop_page_id = $shop_page->ID;
 
-      if(is_shop()){
+      if(is_woocommerce()){
         if(get_field('header_image', $shop_page_id)){
           $header_image = get_field('header_image', $shop_page_id);
           if(get_field('header_image_css', $shop_page_id)){
@@ -91,6 +91,10 @@
             $additional_menu_items .= '<a href="' . get_field('instagram', 'option') . '" target="_blank"><i class="fa fa-instagram"></i></a>';
           }
           $additional_menu_items .= '</li>';
+          $additional_menu_items .= '<li class="cart-account">';
+          $additional_menu_items .= '<a href="' . home_url('cart') . '"><i class="fa fa-shopping-cart"></i></a>';
+          $additional_menu_items .= '<a href="' . home_url('my-account') . '"><i class="fa fa-user"></i></a>';
+          $additional_menu_items .= '</li>';
 
           $navRed_args = array(
             'theme_location' => 'red-nav',
@@ -126,6 +130,10 @@
                   if(get_field('instagram', 'option')): ?>
                     <a href="<?php the_field('instagram', 'option'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
                   <?php endif; ?>
+                </li>
+                <li class="cart-account">
+                  <a href="<?php echo home_url('cart'); ?>"><i class="fa fa-shopping-cart"></i></a>
+                  <a href="<?php echo home_url('my-account'); ?>"><i class="fa fa-user"></i></a>
                 </li>
               </ul>
             </div>
@@ -167,15 +175,18 @@
           <?php endif; ?>
         </div>
       </section>
-    <?php else: ?>
+    <?php else: if(!is_product()): ?>
       <section id="hero" style="background-image:url(<?php echo $header_image; ?>); <?php echo $header_image_css; ?>">
         <div class="caption-wrapper">
           <div class="caption">
             <h2>
               <?php 
                 //echo get_field('header_caption') ? get_field('header_caption') : get_the_title(); 
-                if(is_shop()){
-                  if(get_field('header_caption', $shop_page_id)){
+                if(is_woocommerce()){
+                  if(is_product_category()){
+                    echo $wp_query->get_queried_object()->name;
+                  }
+                  elseif(get_field('header_caption', $shop_page_id)){
                     echo get_field('header_caption', $shop_page_id);
                   }
                   else{
@@ -195,4 +206,4 @@
           </div>
         </div>
       </section>
-    <?php endif; ?>
+    <?php endif; endif; ?>
