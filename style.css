@@ -1005,6 +1005,10 @@ input#place_order:hover,
   min-height:260px;
 }
 
+.contact-form{
+  margin-top:40px;
+}
+
 
 @media (max-width:767px){
   #hero .caption>h2{
